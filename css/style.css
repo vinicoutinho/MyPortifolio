@@ -1,0 +1,538 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #1d1d1d;
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+    background: url('img/atom.png') no-repeat center center/cover;
+    padding: 100px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir a área do cabeçalho */
+    opacity: 0.3; /* Ajusta a opacidade do vídeo */
+    z-index: -1; /* Garante que o vídeo fique atrás do conteúdo do cabeçalho */
+}
+
+#name {
+    font-size: 50px; /* Tamanho do texto aumentado para 40px */
+    font-weight: bold; /* Deixa o texto mais negrito se desejar */
+    color: #e55d00; /* Cor do texto */
+}
+.container {
+    position: relative; /* Garante que o conteúdo dentro da .container não seja afetado pelo posicionamento absoluto do vídeo */
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left, .header-right {
+    flex: 1;
+    max-width: 50%;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.header-left h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header-left p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.header-left .btn, .header-right .btn {
+    background: transparent;
+    color: #ff6600;
+    padding: 10px 25px;
+    text-decoration: none;
+    border: 2px solid #ff6600;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.header-left .btn:hover, .header-right .btn:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+.header-right {
+    text-align: center;
+}
+
+.header-right h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.header-right p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.section {
+    padding: 50px 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff6600;
+}
+
+.card {
+    background: #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 300px;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 50px; /* Tamanho ajustado */
+    height: 50px; /* Tamanho ajustado */
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+    padding: 5px; /* Ajuste de padding para caber no círculo */
+    background: #333;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card-body {
+    padding-top: 10px;
+}
+
+.card:hover {
+    background: #555;
+    transform: scale(1.05); /* Zoom sem rotação */
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 0;
+    list-style-type: none;
+}
+
+.timeline-item {
+    padding: 20px;
+    background: #444;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-item:hover {
+    background: #ff6600;
+    color: #fff;
+    border-left: none; /* Remover borda ao passar o mouse */
+}
+
+.timeline-item .timeline-icon {
+    position: absolute;
+    left: -40px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #ff6600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.timeline-item .timeline-content {
+    padding-left: 60px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-icons a {
+    color: #ff6600;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 24px; /* Ajuste para tamanho mais adequado */
+}
+
+footer .social-icons a:hover {
+    color: #e55d00;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card-wrapper .card {
+    background: #444;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.6s, background 0.6s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-wrapper:hover .card {
+    background: #666;
+    transform: scale(1.1); /* Zoom sem rotação */
+}
+
+.card-wrapper .card img {
+    width: 50px; /* Tamanho ajustado */
+    height: 50px; /* Tamanho ajustado */
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+    padding: 8px; /* Ajuste de padding para caber no círculo */
+    background: #333;
+    margin-bottom: 10px;
+}
+
+.card-wrapper .card h3 {
+    margin-top: 0;
+}
+
+.card-wrapper .card-body {
+    padding-top: 10px;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    animation: scroll 15s linear infinite;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.carousel-item p {
+    margin: 0;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#projects {
+    background-color: #222;
+    padding: 50px 0;
+}
+
+#projects h2 {
+    font-size: 2em;
+    color: #ff6600;
+    margin-bottom: 30px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    background: #444;
+    transform: scale(1.05);
+}
+
+.card-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+    padding: 5px;
+    background: #222;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.card-body p {
+    font-size: 1em;
+    color: #ddd;
+    margin: 0;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-item {
+    background: #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.project-item:hover {
+    background: #555;
+    transform: scale(1.02); /* Zoom leve sem rotação */
+}
+
+.project-item h3 {
+    margin: 0 0 10px;
+    color: #ff6600;
+}
+
+.project-item p {
+    margin: 0 0 20px;
+    color: #ccc;
+}
+
+.project-item .btn {
+    background: transparent;
+    color: #ff6600;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid #ff6600;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.project-item .btn:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+/* Estilo da Navbar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+    position: relative;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 0;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #e55d00;
+    transform: translateY(-5px); /* Animação de subida */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Adiciona uma linha animada abaixo do link ao passar o mouse */
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e55d00;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar .nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Estilo do Menu Flutuante */
+.menu-flutuante {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.menu-flutuante .menu-item {
+    margin: 10px 0;
+}
+
+.menu-flutuante .menu-item a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu-flutuante .menu-item a:hover {
+    background: #444;
+}
+
+/* Estilo do Toggle de Tema */
+.toggle-tema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #444;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.toggle-tema:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* Largura do scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ff6600; /* Cor do "polegar" do scrollbar */
+    border-radius: 15px; /* Arredondamento do "polegar" */
+    border: 3px solid #333; /* Borda do "polegar" */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222; /* Cor do fundo do scrollbar */
+    border-radius: 10px; /* Arredondamento da trilha */
+}
+
+/* Estilo do Scrollbar para Firefox */
+* {
+    scrollbar-width: thin; /* Define a largura do scrollbar */
+    scrollbar-color: #ff6600 #222; /* Cor do "polegar" e fundo do scrollbar */
+}
